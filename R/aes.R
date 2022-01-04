@@ -118,7 +118,9 @@ expandKey <- function(key,nk,nr){
   w
 }
 
-#' Advanced Encryption Standard. Implemented following the guide
+#' Advanced Encryption Standard.
+#'
+#' Implemented following the guide
 #' https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.197.pdf
 #'
 #' @param msg Block of 16 bytes to be encrypted. Represented as a numerical vector

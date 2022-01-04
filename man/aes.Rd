@@ -2,8 +2,7 @@
 % Please edit documentation in R/aes.R
 \name{aes}
 \alias{aes}
-\title{Advanced Encryption Standard. Implemented following the guide
-https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.197.pdf}
+\title{Advanced Encryption Standard.}
 \usage{
 aes(msg, key)
 }
@@ -18,7 +17,7 @@ of length 16/24/32 whose values go from 0 to 255.}
 Encrypted block with the same representation as input.
 }
 \description{
-Advanced Encryption Standard. Implemented following the guide
+Implemented following the guide
 https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.197.pdf
 }
 \examples{
