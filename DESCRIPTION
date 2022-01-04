@@ -1,10 +1,9 @@
 Package: somecrypto
-Title: What the Package Does (One Line, Title Case)
+Title: Implements some crypto primitives for fun only
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Jorge", "Riesco Davila", , "jorgeriesco0@gmail.com", role = c("aut", "cre"))
+Description: Implements functions related to cryptography to study how they work.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,3 +11,5 @@ RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+URL: https://github.com/JorgeRiescoDavila/somecrypto
+BugReports: https://github.com/JorgeRiescoDavila/somecrypto/issues
