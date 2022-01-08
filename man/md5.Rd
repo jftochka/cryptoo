@@ -13,7 +13,7 @@ md5(msg)
 Hashed value as a string.
 }
 \description{
-Message Digest 5
+Already deprecated hash function md5. Replaced by SHA3.
 }
 \examples{
 md5(utf8ToInt(""))

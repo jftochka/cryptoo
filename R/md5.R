@@ -1,6 +1,8 @@
 
 #' Message Digest 5
 #'
+#' Already deprecated hash function md5. Replaced by SHA3.
+#'
 #' @param msg Message to digest. Given as a bytestream (numeric array with values from 0 to 255).
 #'
 #' @return Hashed value as a string.
