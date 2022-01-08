@@ -3,3 +3,4 @@
 export(aes)
 export(leftrot)
 export(md5)
+export(rc4)
