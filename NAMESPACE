@@ -2,7 +2,13 @@
 
 export(a5)
 export(aes)
+export(autokey)
+export(beaufort)
+export(caesar)
 export(des)
+export(freq_analysis)
+export(kasiski)
 export(md5)
 export(rc4)
 export(sha1)
+export(vigenere)
