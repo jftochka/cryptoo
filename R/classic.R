@@ -129,11 +129,11 @@ autokey <- function(msg,key,decrypt=FALSE,alf_size=26){
 #' @export
 #'
 #' @examples
-#' crypto <- cesar(msg_en,3)
+#' crypto <- caesar(msg_en,3)
 #' crypto
 #' info <- freq_analysis(preprocess(crypto),freqs$en)
 #' info
-#' cesar(crypto,info[1],decrypt=TRUE)
+#' caesar(crypto,info[1],decrypt=TRUE)
 freq_analysis <- function(msg,freq){
   freq <- unname(freq)
   alf_size <- length(freq)
@@ -234,3 +234,59 @@ cgcd <- function(gcds){
   }
   return(gcd(gcds))
 }
+
+preprocess <- function(msg){
+  ini <- c("áéíóúüñ")
+  fin <- c("aeiouun")
+  ini <- iconv(ini,"latin1","UTF-8")
+  fin <- iconv(fin,"latin1","UTF-8")
+  ini <- utf8ToInt(ini)
+  fin <- utf8ToInt(fin)
+  msg <- tolower(msg)
+  msg <- iconv(msg,"latin1","UTF-8")
+  msg <- utf8ToInt(msg)
+  for(i in 1:length(ini)){
+    msg[msg==ini[i]] <- fin[i]
+  }
+  valid <- c("abcdefghijklmnopqrstuvwxyz")
+  valid <- iconv(valid,"latin1","UTF-8")
+  valid <- utf8ToInt(valid)
+  msg <- msg[msg %in% valid]
+  for(i in 1:length(valid)){
+    msg[msg==valid[i]] <- i-1
+  }
+  msg
+}
+
+postprocess <- function(msg,multiple=FALSE){
+  intToUtf8(msg+97,multiple)
+}
+
+msg_es <- "Un criptograma es un fragmento de mensaje cifrado, y cuyo significado es ininteligible hasta que es descifrado. Generalmente, el contenido del mensaje inteligible es modificado siguiendo un determinado patrón, de manera que sólo es posible comprender el significado original tras conocer o descubrir el patrón seguido en el cifrado."
+msg_en <- "A cryptogram is a type of puzzle that consists of a short piece of encrypted text.[1] Generally the cipher used to encrypt the text is simple enough that the cryptogram can be solved by hand. Substitution ciphers where each letter is replaced by a different letter or number are frequently used. To solve the puzzle, one must recover the original lettering. Though once used in more serious applications, they are now mainly printed for entertainment in newspapers and magazines."
+freqs <- list()
+freqs$en <- 0.01*c(
+  8.167, 1.492, 2.782, 4.253,12.702, 2.228, 2.015, 6.094, 6.966, 0.153, 0.772, 4.025, 2.406,
+  6.749, 7.507, 1.929, 0.095, 5.987, 6.327, 9.056, 2.758, 0.978, 2.360, 0.150, 1.974, 0.074)
+names(freqs$en) <- letters
+freqs$es <- 0.01*c(
+  11.525,2.215,4.019,5.010,12.181,0.692,1.768,0.703,6.247,0.493,0.011,4.967,3.157,6.712,8.683,2.510,
+  0.877,6.871,7.977,4.632,2.927,1.138,0.017,0.215,1.008,0.467,0.502,0.433,0.725,0.311,0.827,0.168,0.012)
+names(freqs$es) <- c(letters,c("á","é","í","ñ","ó","ú","ü"))
+simplify_freq <- function(freq){
+  ini <- c("áéíóúüñ")
+  fin <- c("aeiouun")
+  val <- c("abcdefghijklmnopqrstuvwxyz")
+  ini <- iconv(ini,"latin1","UTF-8")
+  fin <- iconv(fin,"latin1","UTF-8")
+  val <- iconv(val,"latin1","UTF-8")
+  ini <- utf8ToInt(ini)
+  fin <- utf8ToInt(fin)
+  val <- utf8ToInt(val)
+  for(i in 1:length(ini)){
+    freq[intToUtf8(fin[i])] <- freq[intToUtf8(fin[i])] + freq[intToUtf8(ini[i])]
+  }
+  freq <- freq[intToUtf8(val,TRUE)]
+  freq
+}
+freqs$es26 <- simplify_freq(freqs$es)
