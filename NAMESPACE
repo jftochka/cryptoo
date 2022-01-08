@@ -2,7 +2,6 @@
 
 export(aes)
 export(des)
-export(leftrot)
 export(md5)
 export(rc4)
 export(sha1)
