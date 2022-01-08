@@ -2,3 +2,4 @@
 
 export(aes)
 export(leftrot)
+export(md5)
