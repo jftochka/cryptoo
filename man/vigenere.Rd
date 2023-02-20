@@ -4,7 +4,7 @@
 \alias{vigenere}
 \title{Vigenere cipher}
 \usage{
-vigenere(msg, key, decrypt = FALSE, alf_size = 26)
+vigenere(msg, key, decrypt = FALSE, alf_size = 33)
 }
 \arguments{
 \item{msg}{Message.}
