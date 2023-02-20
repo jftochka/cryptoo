@@ -4,7 +4,7 @@
 \alias{autokey}
 \title{Vigenere autokey cipher}
 \usage{
-autokey(msg, key, decrypt = FALSE, alf_size = 26)
+autokey(msg, key, decrypt = FALSE, alf_size = 33)
 }
 \arguments{
 \item{msg}{Message.}
