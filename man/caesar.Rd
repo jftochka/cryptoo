@@ -4,7 +4,7 @@
 \alias{caesar}
 \title{Caesar cipher}
 \usage{
-caesar(msg, key, decrypt = FALSE, alf_size = 26)
+caesar(msg, key, decrypt = FALSE, alf_size = 33)
 }
 \arguments{
 \item{msg}{Message.}
