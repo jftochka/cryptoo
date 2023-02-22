@@ -21,9 +21,9 @@ Vigenere cipher can be decrypted without the key. First find the key length.
 Then divide ciphertext into as many sub-ciphertexts as the key length.
 }
 \examples{
-crypto <- vigenere(msg_en,"abc")
+crypto <- vigenere(msg_ua,"лвфд")
 crypto
-info <- kasiski(crypto,freqs$en)
+info <- kasiski(crypto,freqs$ua)
 info
 vigenere(crypto,info$key,decrypt=TRUE)
 }
