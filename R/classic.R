@@ -242,7 +242,7 @@ preprocess <- function(msg){
   fin <- iconv(fin,"latin1","UTF-8")
   ini <- utf8ToInt(ini)
   fin <- utf8ToInt(fin)
-  msg <- tolower(msg)
+  msg <- toupper(msg)
   msg <- iconv(msg,"latin1","UTF-8")
   msg <- utf8ToInt(msg)
   for(i in 1:length(ini)){
