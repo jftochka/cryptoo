@@ -22,7 +22,7 @@ Encrypted message.
 Polyalphabetic(many ways to substitute letters) monogramic(letter by letter) cipher.
 }
 \examples{
-crypto <- vigenere(msg_en,"abc")
+crypto <- vigenere(msg_ua,"abc")
 crypto
 vigenere(crypto,"abc",decrypt=TRUE)
 }
