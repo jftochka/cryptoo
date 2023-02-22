@@ -18,9 +18,9 @@ Caesar cipher secret key. Sorted according to their likelihood.
 Caesar cipher can be decrypted without the key if the language of the message is known.
 }
 \examples{
-crypto <- caesar(msg_en,3)
+crypto <- caesar(msg_ua,3)
 crypto
-info <- freq_analysis(preprocess(crypto),freqs$en)
+info <- freq_analysis(preprocess(crypto),freqs$ua)
 info
 caesar(crypto,info[1],decrypt=TRUE)
 }
