@@ -12,7 +12,7 @@ You can install the development version of somecrypto from [GitHub](https://gith
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("JorgeRiescoDavila/somecrypto")
+devtools::install_github("jftochka/somecrypto")
 ```
 
 ## Example
