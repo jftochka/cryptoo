@@ -1,5 +1,5 @@
 
-# somecrypto
+# cryptoo
 
 <!-- badges: start -->
 <!-- badges: end -->
