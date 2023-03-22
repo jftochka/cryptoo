@@ -16,7 +16,7 @@
 #' crypto <- caesar(msg_ua,key=3)
 #' crypto
 #' caesar(crypto,key=3,decrypt=TRUE)
-caesar <- function(msg,key,decrypt=FALSE,alf_size=34){
+caesar <- function(msg,key,decrypt=FALSE,alf_size=33){
   msg <- preprocess(msg)
   if(decrypt){
     key <- alf_size-key
@@ -247,7 +247,7 @@ preprocess <- function(msg){
   for(i in 1:length(ini)){
     msg[msg==ini[i]] <- fin[i]
   }
-  valid <- c("abcdefghijklmnopqrstuvwxyz")
+  valid <- c("АБВГҐДЕЄЖЗИIЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ_")
   valid <- iconv(valid,"latin1","UTF-8")
   valid <- utf8ToInt(valid)
   msg <- msg[msg %in% valid]
@@ -261,18 +261,17 @@ postprocess <- function(msg,multiple=FALSE){
   intToUtf8(msg+97,multiple)
 }
 
-msg_es <- "Un criptograma es un fragmento de mensaje cifrado, y cuyo significado es ininteligible hasta que es descifrado. Generalmente, el contenido del mensaje inteligible es modificado siguiendo un determinado patrón, de manera que sólo es posible comprender el significado original tras conocer o descubrir el patrón seguido en el cifrado."
 msg_ua <- "A cryptogram is a type of puzzle that consists of a short piece of encrypted text.[1] Generally the cipher used to encrypt the text is simple enough that the cryptogram can be solved by hand. Substitution ciphers where each letter is replaced by a different letter or number are frequently used. To solve the puzzle, one must recover the original lettering. Though once used in more serious applications, they are now mainly printed for entertainment in newspapers and magazines."
 freqs <- list()
 freqs$ua <- c(
-  0.138, 0.064, 0.013, 0.046, 0.013, 0.000, 0.027, 0.042, 0.005, 0.007, 0.020, 0.055, 0.044, 0.010,
+  0.064, 0.013, 0.046, 0.013, 0.000, 0.027, 0.042, 0.005, 0.007, 0.020, 0.055, 0.044, 0.010,
   0.009, 0.033, 0.027, 0.029, 0.068, 0.086, 0.025, 0.043, 0.037, 0.045, 0.027, 0.003, 0.011, 0.010,
-  0.011, 0.005, 0.004, 0.016, 0.008, 0.019)
+  0.011, 0.005, 0.004, 0.016, 0.008, 0.019, 0.138)
 names(freqs$ua) <- c(
-  "_", "А", "Б", "В", "Г", "Ґ", "Д", "Е", "Є", "Ж", "З",
+  "А", "Б", "В", "Г", "Ґ", "Д", "Е", "Є", "Ж", "З",
   "И", "I", "Ї", "Й", "К", "Л", "М", "Н", "О", "П", "Р",
   "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ь", "Ю",
-  "Я")
+  "Я","_")
 simplify_freq <- function(freq){
   ini <- c("áéíóúüñ")
   fin <- c("aeiouun")
