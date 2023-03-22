@@ -1,4 +1,4 @@
-Package: somecrypto
+Package: cryptoo
 Title: Implements some crypto primitives for fun only
 Version: 0.0.0.9000
 Authors@R: 
@@ -11,5 +11,5 @@ RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/JorgeRiescoDavila/somecrypto
-BugReports: https://github.com/JorgeRiescoDavila/somecrypto/issues
+URL: https://github.com/jftochka/cryptoo
+BugReports: https://github.com/jftochka/cryptoo/issues
