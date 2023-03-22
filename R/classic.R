@@ -238,17 +238,17 @@ cgcd <- function(gcds){
 preprocess <- function(msg){
   ini <- c("áéíóúüñ")
   fin <- c("aeiouun")
-  ini <- iconv(ini,"latin1","UTF-8")
-  fin <- iconv(fin,"latin1","UTF-8")
+  ini <- iconv(ini,"win1251","UTF-8")
+  fin <- iconv(fin,"win1251","UTF-8")
   ini <- utf8ToInt(ini)
   fin <- utf8ToInt(fin)
-  msg <- iconv(msg,"latin1","UTF-8")
+  msg <- iconv(msg,"win1251","UTF-8")
   msg <- utf8ToInt(msg)
   for(i in 1:length(ini)){
     msg[msg==ini[i]] <- fin[i]
   }
   valid <- c("АБВГҐДЕЄЖЗИIЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ_")
-  valid <- iconv(valid,"latin1","UTF-8")
+  valid <- iconv(valid,"win1251","UTF-8")
   valid <- utf8ToInt(valid)
   msg <- msg[msg %in% valid]
   for(i in 1:length(valid)){
@@ -276,9 +276,9 @@ simplify_freq <- function(freq){
   ini <- c("áéíóúüñ")
   fin <- c("aeiouun")
   val <- c("abcdefghijklmnopqrstuvwxyz")
-  ini <- iconv(ini,"latin1","UTF-8")
-  fin <- iconv(fin,"latin1","UTF-8")
-  val <- iconv(val,"latin1","UTF-8")
+  ini <- iconv(ini,"win1251","UTF-8")
+  fin <- iconv(fin,"win1251","UTF-8")
+  val <- iconv(val,"win1251","UTF-8")
   ini <- utf8ToInt(ini)
   fin <- utf8ToInt(fin)
   val <- utf8ToInt(val)
