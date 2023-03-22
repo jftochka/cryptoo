@@ -4,7 +4,7 @@
 \alias{vigenere}
 \title{Vigenere cipher}
 \usage{
-vigenere(msg, key, decrypt = FALSE, alf_size = 33)
+vigenere(msg, key, decrypt = FALSE, alf_size = 34)
 }
 \arguments{
 \item{msg}{Message.}
@@ -22,7 +22,7 @@ Encrypted message.
 Polyalphabetic(many ways to substitute letters) monogramic(letter by letter) cipher.
 }
 \examples{
-crypto <- vigenere(msg_ua,"abc")
+crypto <- vigenere(msg_ua,"абв")
 crypto
-vigenere(crypto,"abc",decrypt=TRUE)
+vigenere(crypto,"абв",decrypt=TRUE)
 }
