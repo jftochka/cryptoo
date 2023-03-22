@@ -12,7 +12,7 @@ You can install the development version of somecrypto from [GitHub](https://gith
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("jftochka/somecrypto")
+devtools::install_github("jftochka/cryptoo")
 ```
 
 ## Example
@@ -20,7 +20,7 @@ devtools::install_github("jftochka/somecrypto")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(somecrypto)
+library(cryptoo)
 leftrot(1:10,2)
 ```
 
